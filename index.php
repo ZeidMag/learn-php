@@ -1,12 +1,20 @@
 <?php 
-$blogs = [
-    ['title'=>'mario party','author'=> 'mario','content'=> 'lorem','likes'=>30],
-    ['mario kart cheats', 'toad', 'lorem',25],
-    ['zelda hidden chests','link','lorem',25]
+$products = [
+    ['name' => 'shiny star', 'price' => 20],
+    ['name' => 'green shell', 'price' => 10],
+    ['name' => 'red shell', 'price' => 15],
+    ['name' => 'golden coin', 'price' => 5],
+    ['name' => 'lightning bolt', 'price' => 40],
+    ['name' => 'banana skin', 'price' => 2],
 ];
-$blogs[] = ['title'=>'castle party', 'author'=> 'peach', 'content'=> 'lorem', 'likes'=>100];
-$popped = array_pop($blogs);
-print_r($popped);
+
+foreach($products as $product){
+    if($product['price'] === 5){
+        continue; // continue skips this iteration and continue the loop
+        // break; // exits the loop
+    }
+    echo $product['name'] . "<br/>";
+}
 ?>
 
 <!DOCTYPE html>
