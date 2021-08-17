@@ -1,20 +1,26 @@
 <?php 
-$products = [
-    ['name' => 'shiny star', 'price' => 20],
-    ['name' => 'green shell', 'price' => 10],
-    ['name' => 'red shell', 'price' => 15],
-    ['name' => 'golden coin', 'price' => 5],
-    ['name' => 'lightning bolt', 'price' => 40],
-    ['name' => 'banana skin', 'price' => 2],
-];
-
-foreach($products as $product){
-    if($product['price'] === 5){
-        continue; // continue skips this iteration and continue the loop
-        // break; // exits the loop
-    }
-    echo $product['name'] . "<br/>";
+function myFunc(){
+    $price = 10;
+    echo $price;
 }
+$name = "zeid"; // global variables cannot be accessed within functions without global declaration in the function
+
+function sayHello(){
+    global $name;
+    $name = "omar"; // once global variable is accessed, it can be modified and overwritten 
+    echo "hello $name <br/>";
+}
+
+// sayHello();
+// echo $name;
+
+function sayBye($name){
+    $name = "jom3aa";
+    echo "bye $name <br/>";
+}
+
+sayBye($name);
+echo $name;
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +32,5 @@ foreach($products as $product){
     <title>PHP Tutorials</title>
 </head>
 <body>
-    <h1>Test </h1>
 </body>
 </html>
