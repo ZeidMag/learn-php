@@ -15,11 +15,19 @@ function sayHello(){
 // echo $name;
 
 function sayBye($name){
-    $name = "jom3aa";
+    $name = "jom3aa"; // this wont modify the global variable
     echo "bye $name <br/>";
 }
 
-sayBye($name);
+// sayBye($name);
+// echo $name;
+
+function sayGoodEvening(&$name){
+    $name = "jom3aa"; // this will modify the global variable because (&) was added in the dependency injection
+    echo "good evening $name <br/>";
+}
+
+sayGoodEvening($name);
 echo $name;
 ?>
 
