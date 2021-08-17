@@ -1,34 +1,12 @@
 <?php 
-function myFunc(){
-    $price = 10;
-    echo $price;
-}
-$name = "zeid"; // global variables cannot be accessed within functions without global declaration in the function
+//  include('ninjas.php'); // if error occur, it will throw warning and carry on
+//  require('ninjas.php'); // if error occur, it will throw fatal error and wont carry on with the code
 
-function sayHello(){
-    global $name;
-    $name = "omar"; // once global variable is accessed, it can be modified and overwritten 
-    echo "hello $name <br/>";
-}
+// include 'ninjas.php'; // could be written without ()
+// require 'ninjas.php'; // could be written without ()
 
-// sayHello();
-// echo $name;
-
-function sayBye($name){
-    $name = "jom3aa"; // this wont modify the global variable
-    echo "bye $name <br/>";
-}
-
-// sayBye($name);
-// echo $name;
-
-function sayGoodEvening(&$name){
-    $name = "jom3aa"; // this will modify the global variable because (&) was added in the dependency injection
-    echo "good evening $name <br/>";
-}
-
-sayGoodEvening($name);
-echo $name;
+ include('ninjas.php');
+ echo 'end of php';
 ?>
 
 <!DOCTYPE html>
@@ -40,5 +18,8 @@ echo $name;
     <title>PHP Tutorials</title>
 </head>
 <body>
+    <?php include('content.php') ?>
+    <?php include('content.php') ?>
+    <?php include('content.php') ?>
 </body>
 </html>
