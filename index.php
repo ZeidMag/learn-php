@@ -5,9 +5,7 @@ $blogs = [
     ['zelda hidden chests','link','lorem',25]
 ];
 $blogs[] = ['title'=>'castle party', 'author'=> 'peach', 'content'=> 'lorem', 'likes'=>100];
-// print_r($blogs);
 $popped = array_pop($blogs);
-// echo $blogs[3]['title'];
 print_r($popped);
 ?>
 
