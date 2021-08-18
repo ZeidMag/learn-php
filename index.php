@@ -1,7 +1,10 @@
 <?php 
-    // ternary operators
-    $score = 30;
-    echo $score > 40 ? 'high': 'low'; // we cant echo inside ternary since it just return a value
+ // superglobals: always start with $_
+ // $_GET, $_POST
+ echo $_SERVER['SERVER_NAME'] . '<br/>';
+ echo $_SERVER['REQUEST_METHOD'] . '<br/>';
+ echo $_SERVER['SCRIPT_FILENAME'] . '<br/>';
+ echo $_SERVER['PHP_SELF'] . '<br/>';
 ?>
 
 <!DOCTYPE html>
