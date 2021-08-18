@@ -1,10 +1,6 @@
 <?php 
- // superglobals: always start with $_
- // $_GET, $_POST
- echo $_SERVER['SERVER_NAME'] . '<br/>';
- echo $_SERVER['REQUEST_METHOD'] . '<br/>';
- echo $_SERVER['SCRIPT_FILENAME'] . '<br/>';
- echo $_SERVER['PHP_SELF'] . '<br/>';
+// get cookie
+$gender = $_COOKIE['gender'] ?? 'not selected';
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +12,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h2>Gender is (<?php echo htmlspecialchars($gender) ?>)</h2>
+    <a href="cookie.php"><-- go back</a>
 </body>
 </html>
