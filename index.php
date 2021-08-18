@@ -1,5 +1,7 @@
 <?php 
-
+    // ternary operators
+    $score = 30;
+    echo $score > 40 ? 'high': 'low'; // we cant echo inside ternary since it just return a value
 ?>
 
 <!DOCTYPE html>
