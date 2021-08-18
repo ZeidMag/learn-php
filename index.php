@@ -1,25 +1,53 @@
 <?php 
-//  include('ninjas.php'); // if error occur, it will throw warning and carry on
-//  require('ninjas.php'); // if error occur, it will throw fatal error and wont carry on with the code
+include('config/db_connect.php');
+// write query for all pizzas
+    $sql = 'SELECT title, ingredients, id FROM pizzas ORDER BY created_at';
 
-// include 'ninjas.php'; // could be written without ()
-// require 'ninjas.php'; // could be written without ()
+    // make query & get result
+    $result = mysqli_query($conn, $sql);
 
- include('ninjas.php');
- echo 'end of php';
+    // fetch the resulting rows as an array
+    $pizzas = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    // free $result from memory (best practice)
+    mysqli_free_result($result);
+    
+    //close db connection
+    mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Tutorials</title>
-</head>
-<body>
-    <?php include('content.php') ?>
-    <?php include('content.php') ?>
-    <?php include('content.php') ?>
-</body>
+    <?php include 'templates/header.php' ?>
+<h4 class="center cgrey-text">
+    <div class="container">
+        <div class="row">
+            <?php 
+            foreach($pizzas as $pizza): ?>
+                <div class="col s6 md3">
+                    <div class="card z-depth-0">
+                        <div class="card-content center">
+                            <h6><?php echo htmlspecialchars($pizza['title']) ?></h6>
+                            <ul><?php 
+                                foreach(explode(',',$pizza['ingredients']) as $ing): ?>
+                                   <li><?php echo htmlspecialchars($ing) ?></li> 
+                                <?php endforeach
+                                ?></ul>
+                        </div>
+                        <div class="card-action right-align">
+                            <a href="details.php?id=<?php echo $pizza['id'] ?>" class="brand-text">more info</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach ?>
+            <?php if(count($pizzas) >= 5): ?>
+                <p>there are 5 or more pizzas</p>
+            <?php else: ?>
+                <p>there are less than 5 pizzas</p>
+            <?php endif; ?>
+        </div>
+    </div>
+</h4>
+
+    <?php include 'templates/footer.php' ?>
 </html>
