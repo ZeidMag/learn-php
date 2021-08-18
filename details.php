@@ -51,7 +51,7 @@ if(isset($_GET['id'])){
             <?php endforeach; ?>
         </ul>
         <!-- DELETE FORM -->
-        <form action="details.php" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <input type="hidden" name="id_to_delete" value="<?php echo htmlspecialchars($pizza['id']) ?>">
             <input type="submit" name="delete" value="delete" class="btn brand z-dept-0">
         </form>
